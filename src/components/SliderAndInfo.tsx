@@ -1,4 +1,4 @@
-import { hTitle, myContainerWide, pDescription } from "@/utils/tailwind-styles";
+import { hTitle, myContainerWide, myContainerWideReverse, pDescription } from "@/utils/tailwind-styles";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
 import "swiper/css";
@@ -6,14 +6,17 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import Image from "next/image";
 import Button from "./Button";
+import { reverse } from "dns";
 
 interface SliderAndInfoProps {
+    reverse: boolean
     title: string
     desc: string
     images: {id: number, image: string, alt: string}[]
+    hasButton: boolean
 }
 
-export default function SliderAndInfo({images, title, desc}: SliderAndInfoProps) {
+export default function SliderAndInfo({images, title, desc, reverse, hasButton}: SliderAndInfoProps) {
 
     const slides = images.map(item => (
         <SwiperSlide key={item.id} className="relative">
@@ -22,7 +25,7 @@ export default function SliderAndInfo({images, title, desc}: SliderAndInfoProps)
     ))
     
     return (
-        <section className={myContainerWide}>
+        <section className={reverse ? myContainerWideReverse : myContainerWide}>
             
                 <Swiper
                     spaceBetween={30}
@@ -42,7 +45,7 @@ export default function SliderAndInfo({images, title, desc}: SliderAndInfoProps)
                     <div className="text-xs opacity-60">Наши проекты</div>
                     <h2 className={hTitle}>{title}</h2>
                     <p className={pDescription}>{desc}</p>
-                    <Button title="Заказать ремонт" />
+                    { hasButton ? <Button title="Заказать ремонт" /> : null}
                 </div>
             </div>
         </section>

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Raleway } from '@next/font/google'
-import { BigScrollText, Button, CustomSlider, DottedInfoArea, GridInfoArea, HighlighedArea, InfoAndBigIcon, InfoAndImage, Price, Quiz, SimpleForm, SingleCenteredInfo } from '@/components'
+import { BigScrollText, Button, CustomSlider, DottedInfoArea, Form, GridInfoArea, HighlighedArea, InfoAndBigIcon, InfoAndImage, Price, Quiz, SimpleForm, SingleCenteredInfo } from '@/components'
 import { project } from '@/utils/tailwind-styles'
 import { InfoAndImageDestination } from '@/components/InfoAndImage'
 import SliderAndInfo from '@/components/SliderAndInfo'
@@ -72,6 +72,8 @@ export default function Home() {
           alt2='technology'
         />
         <SliderAndInfo
+          reverse={false}
+          hasButton={true}
           title='Наш проект в жк High Life'
           desc='У нас подготовлен давно зарекомендовавший себя план действий, который приведет нас шаг за шагом к результату - от знакомства до сдачи готового объекта.'
           images={[
@@ -106,11 +108,22 @@ export default function Home() {
           title='Один объект - одно финансирование'
           desc='Мы не перераспределяем средства между разными объектами, а внутренняя система мотивации сотрудников построена так, что в интересах каждого специалиста выполнить работы с высочайшим коэффициентом качества и в установленные сроки.'
         />
-        <Quiz />
-        <SingleCenteredInfo
-          title='Баланс между ценой и качеством услуги'
-          desc='Мы не предлагаем дешевых услуг, но ценим каждый рубль, вложенный в ваше будущее жилище. Гибко подходим к вопросу ценообразования и индивидуально расчитываем стоимость работ по каждому объекту.'
+        <SliderAndInfo
+          reverse={true}
+          hasButton={false}
+          title='Наши активные проекты'
+          desc='У нас подготовлен давно зарекомендовавший себя план действий, который приведет нас шаг за шагом к результату - от знакомства до сдачи готового объекта.'
+          images={[
+            {id: 0, image: "project", alt: "project"},
+            {id: 1, image: "girl", alt: "girl"},
+            {id: 2, image: "interior", alt: "interior"},
+          ]}
         />
+        <SingleCenteredInfo
+          title='Оставьте заявку на ремонтные работы'
+          desc='Получите профессиональную консультацию и ответы на все вопросы. Достаточно оставить контактный номер и наш специалист перезвонит в течение 10 минут.'
+        />
+        <Form />
       </main>
     </>
   )
