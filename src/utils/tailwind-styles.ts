@@ -1,0 +1,11 @@
+export const project = "bg-[#141414] font-sans text-white"
+export const myContainer = "container mx-auto py-24 lg:py-32 px-4 md:px-0 max-w-5xl"
+export const myContainerYExtended = "container mx-auto py-48 lg:py-64 px-4 md:px-0 max-w-5xl flex flex-col gap-y-12"
+export const myFlexRowLeading = "flex flex-col-reverse md:px-32 lg:px-0 lg:flex-row lg:items-center lg:gap-x-[64px] xl:gap-x-[124px] gap-y-16"
+export const myFlexRowTrailing = "flex flex-col-reverse md:px-32 lg:px-0 lg:flex-row-reverse lg:items-center lg:gap-x-[64px] xl:gap-x-[124px] gap-y-16"
+export const hTitle = "font-extrabold text-2xl xl:text-4xl"
+export const pDescription = "font-medium"
+export const myFlexRowLeadingNoReverse = "flex flex-col md:px-32 lg:px-0 lg:flex-row lg:items-center lg:gap-x-[64px] xl:gap-x-[124px] gap-y-16"
+export const myContainerWide = "mb-[125px] mx-auto w-[97%] flex flex-col lg:flex-row bg-[#191919]"
+export const myContainerWideReverse = "mb-[125px] mx-auto w-[97%] flex flex-col lg:flex-row-reverse bg-[#191919]"
+
