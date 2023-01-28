@@ -14,9 +14,10 @@ interface SliderAndInfoProps {
     desc: string
     images: {id: number, image: string, alt: string}[]
     hasButton: boolean
+    anchor?: string
 }
 
-export default function SliderAndInfo({images, title, desc, reverse, hasButton}: SliderAndInfoProps) {
+export default function SliderAndInfo({images, title, desc, reverse, hasButton, anchor}: SliderAndInfoProps) {
 
     const slides = images.map(item => (
         <SwiperSlide key={item.id} className="relative">
@@ -25,7 +26,7 @@ export default function SliderAndInfo({images, title, desc, reverse, hasButton}:
     ))
     
     return (
-        <section className={reverse ? myContainerWideReverse : myContainerWide}>
+        <section id={anchor} className={reverse ? myContainerWideReverse : myContainerWide}>
             
                 <Swiper
                     spaceBetween={30}

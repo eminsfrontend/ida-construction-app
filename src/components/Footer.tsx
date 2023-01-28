@@ -1,10 +1,13 @@
 import { myContainer, myFlexRowLeadingNoReverse } from "@/utils/tailwind-styles";
 import Image from "next/image";
 
+interface FooterProps {
+    anchor?: string
+}
 
-export default function Footer() {
+export default function Footer({anchor}: FooterProps) {
     return (
-        <footer className={`bg-[#191919]`}>
+        <footer id={anchor} className={`bg-[#191919]`}>
             <div className={`${myContainer}`}>
                 <div className={`${myFlexRowLeadingNoReverse} justify-between`}>
                     <Image src="/icons/logo.svg" alt="logo" width={158} height={38} />

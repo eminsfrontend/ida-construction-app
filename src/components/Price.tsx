@@ -7,9 +7,13 @@ const raleway = Montserrat({
     variable: '--font-montserrat',
   })
 
-export default function Price() {
+interface PriceProps {
+    anchor?: string
+}
+
+export default function Price({anchor}: PriceProps) {
     return (
-        <section className="container mx-auto md:px-32 lg:px-0 pb-24 lg:pb-32 px-4 max-w-5xl">
+        <section id={anchor} className="container mx-auto md:px-32 lg:px-0 pb-24 lg:pb-32 px-4 max-w-5xl">
             <div className="flex flex-col lg:flex-row items-center">
                 <div className="w-full lg:w-[512px] bg-[#191919] h-[700px] shadow-customShadow2 lg:shadow-customShadow z-50 py-[84px] px-1 md:px-[60px] flex flex-col">
                     <Image src='/icons/crown.png' alt="crown" width={100} height={100} className="self-center" />

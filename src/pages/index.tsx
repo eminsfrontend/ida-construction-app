@@ -12,6 +12,7 @@ const raleway = Raleway({
 })
 
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -21,7 +22,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${raleway.variable} ${project}`}>
-        <Header />
+        <Header 
+          title='Элитный ремонт квартир в Москве'
+          desc='Искусство ремонтных работ в исполнении профессионалов своего дела. Высочайший уровень взаимодействия для ценителей качества во всем.'
+          buttonTitle='Заказать ремонт'
+        />
         <InfoAndImage
           anchor='about'
           destination={InfoAndImageDestination.leading}
@@ -51,7 +56,8 @@ export default function Home() {
           hasButton={true}
           buttonTitle="Заказать ремонт"
         />
-        <HighlighedArea 
+        <HighlighedArea
+          anchor='design' 
           mainTitle='В коллаборации с лучшими дизайнерами России' 
           mainDesc='В нашем штате собраны талантливые специалисты, которые помогут найти оптимальной решение в дизайне интерьера и подготовят грамотный дизайн-проект. Но мы также приглашаем к сотрудничеству ярких дизайнеров, работы которых подходят искомой стилистике проекта.'
           slides={[
@@ -72,6 +78,7 @@ export default function Home() {
           alt2='technology'
         />
         <SliderAndInfo
+          anchor='portfolio'
           reverse={false}
           hasButton={true}
           title='Наш проект в жк High Life'
@@ -103,7 +110,9 @@ export default function Home() {
           title='Баланс между ценой и качеством услуги'
           desc='Мы не предлагаем дешевых услуг, но ценим каждый рубль, вложенный в ваше будущее жилище. Гибко подходим к вопросу ценообразования и индивидуально расчитываем стоимость работ по каждому объекту.'
         />
-        <Price />
+        <Price 
+          anchor='price'
+        />
         <SingleCenteredInfo
           title='Один объект - одно финансирование'
           desc='Мы не перераспределяем средства между разными объектами, а внутренняя система мотивации сотрудников построена так, что в интересах каждого специалиста выполнить работы с высочайшим коэффициентом качества и в установленные сроки.'
@@ -135,7 +144,7 @@ export default function Home() {
           desc='Получите профессиональную консультацию и ответы на все вопросы. Достаточно оставить контактный номер и наш специалист перезвонит в течение 10 минут.'
         />
         <NewForm />
-        <Footer />
+        <Footer anchor='contacts' />
       </main>
     </>
   )
