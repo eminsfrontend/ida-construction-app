@@ -23,7 +23,7 @@ export default function Header({title, desc, buttonTitle}: HeaderProps) {
 
     return (
         <header className="min-h-screen relative z-50">
-            { popupMenu ? <PopupMenu handler={handlePopupMenu} /> : null }
+            { popupMenu ? <PopupMenu handler={handlePopupMenu} popupState={popupMenu} /> : null }
             <div className={`${myContainerForMainScreen} z-40`}>
                 <nav className="flex justify-between items-center">
                     <Image src={ida} alt='ida-logo' />
@@ -34,7 +34,7 @@ export default function Header({title, desc, buttonTitle}: HeaderProps) {
                         </button>
                     </nav>
                 </nav>
-                <div className="h-full flex flex-col justify-center mt-14 lg:mt-40">
+                <div className="h-full flex flex-col justify-center mt-14 md:mt-40">
                     <h1 className="text-6xl max-w-2xl font-extrabold">{title}</h1>
                     <p className="font-medium max-w-lg my-16">{desc}</p>
                     <Button title={buttonTitle} />
