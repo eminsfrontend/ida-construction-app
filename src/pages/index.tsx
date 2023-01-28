@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import { Raleway } from '@next/font/google'
-import { BigScrollText, Button, CustomSlider, DottedInfoArea, Form, GridInfoArea, HighlighedArea, InfoAndBigIcon, InfoAndImage, Price, Quiz, SimpleForm, SingleCenteredInfo } from '@/components'
+import { BigScrollText, DottedInfoArea, Footer, GridInfoArea, Header, HighlighedArea, InfoAndBigIcon, InfoAndImage, InfoAndListArea, Price, SimpleForm, SingleCenteredInfo } from '@/components'
 import { project } from '@/utils/tailwind-styles'
 import { InfoAndImageDestination } from '@/components/InfoAndImage'
 import SliderAndInfo from '@/components/SliderAndInfo'
+import NewForm from "../components/NewForm"
 
 const raleway = Raleway({ 
   subsets: ['latin', 'cyrillic'], 
@@ -20,10 +21,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${raleway.variable} ${project}`}>
-        <h1>IDA</h1>
-        <h2>contr.</h2>
-        <p>На русском языке... 123 123 слова...</p>
+        <Header />
         <InfoAndImage
+          anchor='about'
           destination={InfoAndImageDestination.leading}
           title='Весь комплекс работ в одном месте'
           desc='От замеров до сданного объекта – все работы мы выполняем под ключ силами профессиональных штатных специалистов - мастеров высочайшего уровня.'
@@ -119,11 +119,23 @@ export default function Home() {
             {id: 2, image: "interior", alt: "interior"},
           ]}
         />
+          <InfoAndListArea 
+            title='Продуманный алгоритм проектной работы' 
+            desc='У нас подготовлен давно зарекомендовавший себя план действий, который приведет нас шаг за шагом к результату - от знакомства до сдачи готового объекта.'
+            list={[
+              {id: 0, text: 'Знакомство с клиентом, проведение замеров, подписание договора о сотрудничестве.'},
+              {id: 1, text: 'Подбор дизайнера и подготовка дизайн-проекта объекта, 3d визуализация.'},
+              {id: 2, text: 'Подготовка детальной сметы, обсуждение этапов работ и оплаты.'},
+              {id: 3, text: 'Подбор дизайнера и подготовка дизайн-проекта объекта, 3d визуализация.'},
+              {id: 4, text: 'Заключение договора и подписание акта о начале работ.'},
+            ]}
+          />
         <SingleCenteredInfo
           title='Оставьте заявку на ремонтные работы'
           desc='Получите профессиональную консультацию и ответы на все вопросы. Достаточно оставить контактный номер и наш специалист перезвонит в течение 10 минут.'
         />
-        <Form />
+        <NewForm />
+        <Footer />
       </main>
     </>
   )

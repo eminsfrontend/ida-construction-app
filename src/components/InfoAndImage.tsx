@@ -17,11 +17,12 @@ interface InfoAndImageProps {
     alt: string
     hasButton: boolean
     buttonTitle?: string
+    anchor?: string
 }
 
-export default function InfoAndImage({destination, title, desc, hasDevider, subtitle, subdesc, img, alt, hasButton, buttonTitle}: InfoAndImageProps) {
+export default function InfoAndImage({destination, title, desc, hasDevider, subtitle, subdesc, img, alt, hasButton, buttonTitle, anchor}: InfoAndImageProps) {
     return (
-        <section className={myContainer}>
+        <section id={anchor} className={myContainer}>
             <div className={destination === InfoAndImageDestination.leading ? myFlexRowLeading : myFlexRowTrailing}>
                 <div className="flex flex-col flex-1 gap-y-6 px-4 lg:px-0">
                     <h2 className={hTitle}>{title}</h2>
