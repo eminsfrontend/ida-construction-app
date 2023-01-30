@@ -18,9 +18,10 @@ interface InfoAndImageProps {
     hasButton: boolean
     buttonTitle?: string
     anchor?: string
+    buttonAction?: () => void 
 }
 
-export default function InfoAndImage({destination, title, desc, hasDevider, subtitle, subdesc, img, alt, hasButton, buttonTitle, anchor}: InfoAndImageProps) {
+export default function InfoAndImage({destination, title, desc, hasDevider, subtitle, subdesc, img, alt, hasButton, buttonTitle, anchor, buttonAction}: InfoAndImageProps) {
     return (
         <section id={anchor} className={myContainer}>
             <div className={destination === InfoAndImageDestination.leading ? myFlexRowLeading : myFlexRowTrailing}>
@@ -30,7 +31,7 @@ export default function InfoAndImage({destination, title, desc, hasDevider, subt
                     { hasDevider ? <div className="my-8 border-b border-b-white border-opacity-50" /> : null }
                     { subtitle ? <h3 className="font-bold">{subtitle}</h3> : null }
                     { subdesc ? <p className={pDescription}>{subdesc}</p> : null }
-                    { hasButton ? <Button title={buttonTitle || ""} /> : null }
+                    { hasButton ? <Button action={buttonAction} title={buttonTitle || ""} /> : null }
                 </div>
                 <div className="flex-1 relative">
                     <Image src={`/img/${img}.jpg`} alt={alt} width={2000} height={2000} />

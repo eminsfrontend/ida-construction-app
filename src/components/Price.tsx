@@ -9,9 +9,10 @@ const raleway = Montserrat({
 
 interface PriceProps {
     anchor?: string
+    buttonAction?: () => void
 }
 
-export default function Price({anchor}: PriceProps) {
+export default function Price({anchor, buttonAction}: PriceProps) {
     return (
         <section id={anchor} className="container mx-auto md:px-32 lg:px-0 pb-24 lg:pb-32 px-4 max-w-5xl">
             <div className="flex flex-col lg:flex-row items-center">
@@ -68,7 +69,7 @@ export default function Price({anchor}: PriceProps) {
                 </div>
             </div>
             <div className="mt-[60px] flex justify-center w-full">
-                <Button title='Персональная консультация' />
+                <Button action={buttonAction} title='Персональная консультация' />
             </div>
         </section>
     )

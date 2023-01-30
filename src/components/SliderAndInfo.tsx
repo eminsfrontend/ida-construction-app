@@ -15,9 +15,10 @@ interface SliderAndInfoProps {
     images: {id: number, image: string, alt: string}[]
     hasButton: boolean
     anchor?: string
+    buttonAction?: () => void
 }
 
-export default function SliderAndInfo({images, title, desc, reverse, hasButton, anchor}: SliderAndInfoProps) {
+export default function SliderAndInfo({images, title, desc, reverse, hasButton, anchor, buttonAction}: SliderAndInfoProps) {
 
     const slides = images.map(item => (
         <SwiperSlide key={item.id} className="relative">
@@ -46,7 +47,7 @@ export default function SliderAndInfo({images, title, desc, reverse, hasButton, 
                     <div className="text-xs opacity-60">Наши проекты</div>
                     <h2 className={hTitle}>{title}</h2>
                     <p className={pDescription}>{desc}</p>
-                    { hasButton ? <Button title="Заказать ремонт" /> : null}
+                    { hasButton ? <Button action={buttonAction} title="Заказать ремонт" /> : null}
                 </div>
             </div>
         </section>

@@ -10,9 +10,10 @@ interface HeaderProps {
     title: string
     desc: string
     buttonTitle: string
+    buttonAction: () => void
 }
 
-export default function Header({title, desc, buttonTitle}: HeaderProps) {
+export default function Header({title, desc, buttonTitle, buttonAction}: HeaderProps) {
 
     
   const [popupMenu, setPopupMenu] = useState<boolean>(false)
@@ -37,7 +38,7 @@ export default function Header({title, desc, buttonTitle}: HeaderProps) {
                 <div className="h-full flex flex-col justify-center mt-14 md:mt-40">
                     <h1 className="text-6xl max-w-2xl font-extrabold">{title}</h1>
                     <p className="font-medium max-w-lg my-16">{desc}</p>
-                    <Button title={buttonTitle} />
+                    <Button action={buttonAction} title={buttonTitle} />
                 </div>
             </div>
             <div className="absolute top-0 left-0 w-full h-full -z-10">

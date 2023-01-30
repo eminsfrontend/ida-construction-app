@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import { Raleway } from '@next/font/google'
-import { BigScrollText, DottedInfoArea, Footer, GridInfoArea, Header, HighlighedArea, InfoAndBigIcon, InfoAndImage, InfoAndListArea, Price, SimpleForm, SingleCenteredInfo } from '@/components'
+import { BigScrollText, DottedInfoArea, Footer, GridInfoArea, Header, HighlighedArea, InfoAndBigIcon, InfoAndImage, InfoAndListArea, PopupForm, Price, ScrollTop, SimpleForm, SingleCenteredInfo } from '@/components'
 import { project } from '@/utils/tailwind-styles'
 import { InfoAndImageDestination } from '@/components/InfoAndImage'
 import SliderAndInfo from '@/components/SliderAndInfo'
 import NewForm from "../components/NewForm"
+import { useState } from 'react'
 
 const raleway = Raleway({ 
   subsets: ['latin', 'cyrillic'], 
@@ -12,6 +13,12 @@ const raleway = Raleway({
 })
 
 export default function Home() {
+
+  const [formPopup, setFormPopup] = useState<boolean>(false)
+
+  function handleFormPopup() {
+    setFormPopup(prev => !prev)
+  }
 
   return (
     <>
@@ -22,10 +29,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${raleway.variable} ${project}`}>
+        { formPopup ? <PopupForm popupState={formPopup} buttonAction={handleFormPopup} /> : null }
+        <ScrollTop />
         <Header 
           title='Элитный ремонт квартир в Москве'
           desc='Искусство ремонтных работ в исполнении профессионалов своего дела. Высочайший уровень взаимодействия для ценителей качества во всем.'
           buttonTitle='Заказать ремонт'
+          buttonAction={handleFormPopup}
         />
         <InfoAndImage
           anchor='about'
@@ -38,6 +48,7 @@ export default function Home() {
           img='mango'
           alt='mango'
           hasButton={false}
+          buttonAction={undefined}
         />
         <BigScrollText textsArray={[
             "Больше 15 лет мы создаем уникальные жилые пространства,", 
@@ -55,16 +66,17 @@ export default function Home() {
           alt='porsche'
           hasButton={true}
           buttonTitle="Заказать ремонт"
+          buttonAction={handleFormPopup}
         />
         <HighlighedArea
           anchor='design' 
           mainTitle='В коллаборации с лучшими дизайнерами России' 
           mainDesc='В нашем штате собраны талантливые специалисты, которые помогут найти оптимальной решение в дизайне интерьера и подготовят грамотный дизайн-проект. Но мы также приглашаем к сотрудничеству ярких дизайнеров, работы которых подходят искомой стилистике проекта.'
           slides={[
-            {id: 0, title: "Комплектация объекта1", desc: "В нашем штате собраны талантливые специалисты, которые помогут найти оптимальной решение в дизайне интерьера и подготовят грамотный дизайн-проект. Но мы также приглашаем к сотрудничеству ярких дизайнеров, работы которых подходят искомой стилистике проекта.", image: "chair", alt: "chair"},
-            {id: 1, title: "Комплектация объекта2", desc: "В нашем штате собраны талантливые специалисты, которые помогут найти оптимальной решение в дизайне интерьера и подготовят грамотный дизайн-проект. Но мы также приглашаем к сотрудничеству ярких дизайнеров, работы которых подходят искомой стилистике проекта.", image: "light", alt: "light"},
-            {id: 2, title: "Комплектация объекта3", desc: "В нашем штате собраны талантливые специалисты, которые помогут найти оптимальной решение в дизайне интерьера и подготовят грамотный дизайн-проект. Но мы также приглашаем к сотрудничеству ярких дизайнеров, работы которых подходят искомой стилистике проекта.", image: "light", alt: "light"},
-            {id: 3, title: "Комплектация объекта4", desc: "В нашем штате собраны талантливые специалисты, которые помогут найти оптимальной решение в дизайне интерьера и подготовят грамотный дизайн-проект. Но мы также приглашаем к сотрудничеству ярких дизайнеров, работы которых подходят искомой стилистике проекта.", image: "light", alt: "light"},
+            {id: 0, title: "3d визуализация", desc: "Создадим трехмерную модель пространства, чтобы вы получили полное представление о будущем интерьере благодаря фотореалистичным изображениям и планам.", image: "3d", alt: "Визуализация объекатов премиального уровня"},
+            {id: 1, title: "Дизайн проект", desc: "Продумаем до мельчайших подродностей дизайн помещения, учитывая все важные для вас факторы: от состава семьи, до образа жизни и привычек. Поможем определиться со стилистикой объекта на примере реализованных проектов.", image: "design", alt: "Дизайн интерьера премиального уровня"},
+            {id: 2, title: "Комплектация объекта", desc: "Укомплектуем объект современным оборудованием, сантехникой, мебелью и другими элементами от ведущих мировых и Российских производителей. Все работы по логистике выполним самостоятельно, вам остается только выбирать и согласовывать понравившиеся элементы интерьера.", image: "chair", alt: "Комплектация квартиры в Москве"},
+            {id: 3, title: "Авторский надpор", desc: "Под контролем дизайнера и четким исполнением проектной документации Вы получите на выходе идеальное соответствие результата 3d визуализации. Специалист всегда на связи с вами и строительной бригадой для своевременного решения задач разной сложности.", image: "author-control", alt: "Авторский надзор премиум объектов"},
           ]}
         />
         <InfoAndBigIcon
@@ -81,6 +93,7 @@ export default function Home() {
           anchor='portfolio'
           reverse={false}
           hasButton={true}
+          buttonAction={handleFormPopup}
           title='Наш проект в жк High Life'
           desc='У нас подготовлен давно зарекомендовавший себя план действий, который приведет нас шаг за шагом к результату - от знакомства до сдачи готового объекта.'
           images={[
@@ -112,6 +125,7 @@ export default function Home() {
         />
         <Price 
           anchor='price'
+          buttonAction={handleFormPopup}
         />
         <SingleCenteredInfo
           title='Один объект - одно финансирование'
@@ -120,6 +134,7 @@ export default function Home() {
         <SliderAndInfo
           reverse={true}
           hasButton={false}
+          buttonAction={handleFormPopup}
           title='Наши активные проекты'
           desc='У нас подготовлен давно зарекомендовавший себя план действий, который приведет нас шаг за шагом к результату - от знакомства до сдачи готового объекта.'
           images={[

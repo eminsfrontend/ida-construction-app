@@ -34,7 +34,7 @@ export default function SimpleForm() {
                 {result ? 
                     <div className="z-50 fixed bottom-0 md:bottom-5 left-1/2 -translate-x-1/2 bg-[#191919] flex justify-center items-center gap-x-3 w-full md:w-1/3 py-8">
                         <Image src='/icons/approved.svg' alt='approve' width={36} height={36} />
-                        <span className="font-semibold">Сообщение успешно отправлено</span>
+                        <span className="font-semibold">{result}</span>
                     </div>
                     :
                     null
