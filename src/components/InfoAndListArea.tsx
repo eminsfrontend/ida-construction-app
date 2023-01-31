@@ -1,20 +1,21 @@
 import { hTitle, myContainer, myFlexRowLeadingNoReverse, pDescription } from "@/utils/tailwind-styles";
+import { motion } from 'framer-motion'
 
 interface InfoAndImageProps {
     title: string
     desc: string
-    list: {id: number, text: string}[]
+    list: { id: number, text: string }[]
 }
 
-export default function InfoAndListArea({title, desc, list}: InfoAndImageProps) {
-    
+export default function InfoAndListArea({ title, desc, list }: InfoAndImageProps) {
+
     const items = list.map((item, index) => (
-        <div key={item.id} className="flex gap-x-5 items-center">
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: index * 0.2, ease: "easeIn", duration: 0.6 }} key={item.id} className="flex gap-x-5 items-center">
             <div className="shrink-0 w-[60px] h-[60px] rounded-full bg-[#191919] flex items-center justify-center">{index + 1}</div>
             <p className="font-medium">{item.text}</p>
-        </div>
+        </motion.div>
     ))
-    
+
     return (
         <section className={myContainer}>
             <div className={myFlexRowLeadingNoReverse}>

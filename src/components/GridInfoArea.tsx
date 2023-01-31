@@ -1,5 +1,6 @@
 import { myContainer } from "@/utils/tailwind-styles";
 import Image from "next/image";
+import {motion} from 'framer-motion'
 
 interface GridInfoAreaProps {
     gridItems: {id: number, icon: string, alt: string, title: string}[]
@@ -7,13 +8,13 @@ interface GridInfoAreaProps {
 
 export default function GridInfoArea({gridItems}: GridInfoAreaProps) {
 
-    const item = gridItems.map(i => (
-        <div key={i.id} className="bg-[#191919] h-20 flex justify-center items-center">
+    const item = gridItems.map((i, index) => (
+        <motion.div key={i.id} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: index * 0.3, ease: "easeIn", duration: 0.6 }} className="bg-[#191919] h-20 flex justify-center items-center">
             <div className="flex gap-x-[10px] relative items-center">
                 <Image src={`/icons/gridIcons/${i.icon}.svg`} alt={i.alt} width={24} height={24} />
                 <span className="font-semibold text-sm">{i.title}</span>
             </div>
-        </div>
+        </motion.div>
     ))
     
     return (

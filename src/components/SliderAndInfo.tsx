@@ -22,7 +22,7 @@ export default function SliderAndInfo({images, title, desc, reverse, hasButton, 
 
     const slides = images.map(item => (
         <SwiperSlide key={item.id} className="relative">
-            <Image src={`/img/${item.alt}.jpg`} alt={item.alt} width={900} height={800} />
+            <Image src={`/img/${item.alt}.jpg`} alt={item.alt} width={1000} height={800} />
         </SwiperSlide>
     ))
     
