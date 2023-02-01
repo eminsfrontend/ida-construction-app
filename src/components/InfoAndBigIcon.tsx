@@ -15,7 +15,7 @@ interface InfoAndBigIconProps {
 
 export default function InfoAndBigIcon({ title1, desc1, icon1, alt1, title2, desc2, icon2, alt2 }: InfoAndBigIconProps) {
     return (
-        <section className={myContainerYExtended}>
+        <section className={`${myContainerYExtended} overflow-hidden md:overflow-visible`}>
             <div className={myFlexRowLeadingNoReverse}>
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ ease: "easeIn", duration: 1 }} className="flex flex-col flex-1 gap-y-6 px-4 lg:px-0 relative">
                     <div className="z-50 flex flex-col flex-1 gap-y-6 px-4 lg:px-0">

@@ -39,7 +39,19 @@ export default function Footer({anchor}: FooterProps) {
                         </div>
                     </div>
                     <div className="flex-1">
-                        <div className="w-full h-[300px] bg-slate-400"></div>
+                        {/* <div className="w-full h-[300px] bg-slate-400"></div> */}
+                        <div className="relative overflow-hidden" >
+                            <a
+                                href="https://yandex.ru/maps/org/magistral_plaza/1053773682/?utm_medium=mapframe&utm_source=maps"
+                                className="text-[#eee] text-xs absolute top-0">
+                                    Магистраль плаза
+                            </a>
+                            <a href="https://yandex.ru/maps/213/moscow/category/business_center/184107509/?utm_medium=mapframe&utm_source=maps" className="text-[#eee] text-xs absolute top-[14px]">
+                                    Бизнес-центр в Москве
+                            </a>
+                            <iframe src="https://yandex.ru/map-widget/v1/?ll=37.539338%2C55.762766&mode=poi&poi%5Bpoint%5D=37.532117%2C55.765946&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1053773682&z=15.2" width="450" height="300" frameBorder="1" allowFullScreen={true} className="w-full relative">
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>

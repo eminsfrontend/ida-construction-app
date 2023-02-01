@@ -18,7 +18,7 @@ export default function Price({ anchor, buttonAction }: PriceProps) {
     return (
         <section id={anchor} className="container mx-auto md:px-32 lg:px-0 pb-24 lg:pb-32 px-4 max-w-5xl">
             <div className="flex flex-col lg:flex-row items-center">
-                <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ ease: "easeIn", duration: 0.5 }} className="w-full lg:w-[512px] bg-[#191919] h-[700px] shadow-customShadow2 lg:shadow-customShadow z-50 py-[84px] px-1 md:px-[60px] flex flex-col">
+                <motion.div initial={{ opacity: 0, y: 100 }} whileInView={{ opacity: 1, y: 0 }} transition={{ ease: "easeIn", duration: 0.3 }} className="w-full lg:w-[512px] bg-[#191919] h-[700px] shadow-customShadow2 lg:shadow-customShadow z-50 py-[84px] px-1 md:px-[60px] flex flex-col">
                     <Image src='/icons/crown.png' alt="crown" width={100} height={100} className="self-center" />
                     <h3 className="text-4xl font-medium mt-[30px] text-center">Премиум</h3>
                     <p className="text-sm font-medium opacity-60 text-center leading-[18px] mt-[20px]">Беспрецедентный уровень качетсва, высочайшее внимание деталям и индивидуальный подход.</p>
@@ -44,7 +44,7 @@ export default function Price({ anchor, buttonAction }: PriceProps) {
                     <span className="text-4xl font-monts font-medium text-center pt-6">₽ 20 000 / кв. м.</span>
                 </motion.div>
                 {/* Second price area */}
-                <motion.div initial={{ opacity: 0, x: -300 }} whileInView={{ opacity: 1, x: 0 }} transition={{delay: 0.6, ease: "easeIn", duration: 0.75 }} className="w-full lg:w-[448px] bg-[#191919] h-[615px] z-40 py-[50px] px-1 md:px-[55px] flex flex-col">
+                <motion.div initial={{ opacity: 0, x: -300 }} whileInView={{ opacity: 1, x: 0 }} transition={{delay: 0.6, ease: "easeIn", duration: 0.3 }} className="w-full lg:w-[448px] bg-[#191919] h-[615px] z-40 py-[50px] px-1 md:px-[55px] flex flex-col">
                     <Image src='/icons/diamond.png' alt="diamond" width={80} height={80} className="self-center" />
                     <h3 className="text-2xl font-medium mt-6 text-center">Эксклюзив</h3>
                     <p className="text-xs font-medium opacity-60 text-center leading-[18px] mt-[20px]">Беспрецедентный уровень качетсва, высочайшее внимание деталям и индивидуальный подход.</p>
