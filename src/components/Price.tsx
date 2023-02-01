@@ -73,7 +73,7 @@ export default function Price({ anchor, buttonAction }: PriceProps) {
             <div className="mt-[60px] flex justify-center w-full">
                 <Button action={buttonAction} title='Персональная консультация' />
             </div>
-            {/* comment for git 1 */}
+            {/* comment for git test */}
         </section>
     )
 }
